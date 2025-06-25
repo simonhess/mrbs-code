@@ -124,6 +124,8 @@ CREATE TABLE mrbs_repeat
   info_text      text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   ical_uid       varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' NOT NULL,
   ical_sequence  smallint DEFAULT 0 NOT NULL,
+  booker_name                 varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  booker_email                varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 
   PRIMARY KEY (id),
   FOREIGN KEY (room_id)
