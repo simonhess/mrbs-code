@@ -236,6 +236,39 @@ function checkAuthorised($page, $just_check=false)
   exit();
 }
 
+/* checkAuthorisedEntry()
+ *
+ * Checks to see that a user is authorised to access an entry.
+ * If they are not, then shows an "Access Denied" message and exits.
+ *
+ */
+function checkAuthorisedEntry($entry_id)
+{
+  global $view, $view_all, $year, $month, $day, $area, $room;
+  global $returl;
+
+  if (!isset($entry_id)||is_admin())
+  {
+    return true;
+  }
+
+  // If we don't know the right date then use today's
+  if (!isset($day) or !isset($month) or !isset($year))
+  {
+    $day   = date('d');
+    $month = date('m');
+    $year  = date('Y');
+  }
+
+  if (empty($area))
+  {
+    $area = get_default_area();
+  }
+
+  showAccessDenied($view, $view_all, $year, $month, $day, $area, isset($room) ? $room : null);
+  exit();
+}
+
 
 /* getWritable($creator, $room)
  *
@@ -300,8 +333,7 @@ function getWritable($creator, $rooms=null, $all=true) : bool
   // Always allowed to modify your own stuff
   $mrbs_user = session()->getCurrentUser();
   
-  //if (isset($mrbs_user) && isset($creator) && (strcasecmp_locale($creator, $mrbs_user->username) === 0))
-  if(isset($creator) && is_admin())
+  if (isset($mrbs_user) && isset($creator) && (strcasecmp_locale($creator, $mrbs_user->username) === 0))
   {
     return true;
   }

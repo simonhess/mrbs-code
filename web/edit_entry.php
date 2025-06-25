@@ -1147,6 +1147,9 @@ if (!isset($returl))
 // Check the user is authorised for this page
 checkAuthorised(this_page());
 
+// Check the user is authorised for this entry
+checkAuthorisedEntry($id);
+
 $mrbs_user = session()->getCurrentUser();
 $mrbs_username = (isset($mrbs_user)) ? $mrbs_user->username : null;
 
