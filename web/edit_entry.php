@@ -314,8 +314,8 @@ function get_field_start_time(int $value, bool $disabled=false) : FieldDiv
         ->addControlElement(get_all_day($areas[$area_id],
                                         'all_day',
                                         'all_day',
-                                        false,
-                                        $disabled));
+                                        true,
+                                        true));
 
   // Generate the templates for each area
   foreach ($areas as $a)
@@ -332,6 +332,7 @@ function get_field_start_time(int $value, bool $disabled=false) : FieldDiv
                                           'all_day',
                                           true,
                                           true));
+          
   }
 
   return $field;
@@ -667,6 +668,46 @@ function get_field_custom(string $key, bool $disabled=false)
   }
 
   return $field;
+}
+
+function get_field_booker_name(string $value, bool $disabled=false) : Field
+{
+  global $custom_fields;
+
+  $isRequired = true;
+
+  if(is_admin()){
+    $isRequired = false;
+  }
+
+  $params = array('label'    => get_loc_field_name(_tbl('entry'), $value),
+                  'name'     => 'name',
+                  'field'    => 'entry.booker_name',
+                  'value'    => $custom_fields[$key],
+                  'required' => $isRequired,
+                  'disabled' => $disabled);
+
+  return get_field_entry_input($params);
+}
+
+function get_field_booker_email(string $value, bool $disabled=false) : Field
+{
+  global $custom_fields;
+
+  $isRequired = true;
+
+  if(is_admin()){
+    $isRequired = false;
+  }
+
+  $params = array('label'    => get_loc_field_name(_tbl('entry'), $value),
+                  'name'     => 'name',
+                  'field'    => 'entry.booker_email',
+                  'value'    => $custom_fields[$key],
+                  'required' => $isRequired,
+                  'disabled' => $disabled);
+
+  return get_field_entry_input($params);
 }
 
 
@@ -1754,11 +1795,18 @@ foreach ($edit_entry_field_order as $key)
       break;
 
     case 'name':
-      $fieldset->addElement(get_field_name($name));
+      if (!is_admin())
+      {
+        $form->addHiddenInput('name', $name);
+      }
+      else
+      {
+        $fieldset->addElement(get_field_name($name));
+      }
       break;
 
     case 'description':
-      $fieldset->addElement(get_field_description($description));
+        $fieldset->addElement(get_field_description($description));
       break;
 
     case 'start_time':
@@ -1784,6 +1832,14 @@ foreach ($edit_entry_field_order as $key)
 
     case 'privacy_status':
       $fieldset->addElement(get_field_privacy_status($private));
+      break;
+
+    case 'booker_name':
+      $fieldset->addElement(get_field_booker_name($key));
+      break;
+
+    case 'booker_email':
+      $fieldset->addElement(get_field_booker_email($key));
       break;
 
     default:
