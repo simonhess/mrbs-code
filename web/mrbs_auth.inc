@@ -83,7 +83,7 @@ function get_page_level($page)
   // should not apply.
   if (in_array($page, array('reset_password.php', 'reset_password_handler.php')))
   {
-    return 0;
+    return 2;
   }
 
   // Otherwise ...
@@ -99,11 +99,11 @@ function get_page_level($page)
     // These pages reveal usernames, which could be of assistance to someone trying to
     // break into the system, so users are required to be logged in before viewing them.
     case 'search.php':
-      $result = 1;
+      $result = 2;
       break;
 
     case 'view_entry.php':
-      $result = ($auth['allow_anonymous_booking']) ? 0 : 1;
+      $result = 2;
       break;
 
     // These pages are set to have a minimum access level of 1 as ordinary users
@@ -119,7 +119,7 @@ function get_page_level($page)
     case 'pending.php':                 // Ordinary users can view their own entries
     case 'registration_handler.php':    // Ordinary users can register for an event
     case 'usernames.php':               // Ajax page for getting a list of users (booking admins can use this)
-      $result = 1;
+      $result = 2;
       break;
 
     // These pages allow users to create and delete entries
@@ -299,7 +299,9 @@ function getWritable($creator, $rooms=null, $all=true) : bool
 
   // Always allowed to modify your own stuff
   $mrbs_user = session()->getCurrentUser();
-  if (isset($mrbs_user) && isset($creator) && (strcasecmp_locale($creator, $mrbs_user->username) === 0))
+  
+  //if (isset($mrbs_user) && isset($creator) && (strcasecmp_locale($creator, $mrbs_user->username) === 0))
+  if(isset($creator) && is_admin())
   {
     return true;
   }
