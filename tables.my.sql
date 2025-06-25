@@ -161,6 +161,8 @@ CREATE TABLE mrbs_entry
   registration_opens_enabled  tinyint DEFAULT 0 NOT NULL,
   registration_closes         int DEFAULT 0 NOT NULL COMMENT 'Seconds before the start_time',
   registration_closes_enabled tinyint DEFAULT 0 NOT NULL,
+  booker_name                 varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  booker_email                varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
 
   PRIMARY KEY (id),
   FOREIGN KEY (room_id)
