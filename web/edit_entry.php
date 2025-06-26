@@ -459,6 +459,14 @@ function get_field_rooms($value, bool $disabled=false) : FieldSelect
     $field->setLabelAttribute('title', get_vocab('ctrl_click'));
   }
 
+  $rooms_in_area = $rooms[$area_id];
+  $size=1;
+  $selectOptions=array($rooms_in_area[reset($value)]);
+  if(is_Admin()){
+     $size=5;
+     $selectOptions=$rooms_in_area;
+  }
+
   $field->setAttributes(array('class' => 'multiline',
                               'id'    => 'div_rooms'))
         ->setControlAttributes(array('id'       => 'rooms',
@@ -466,8 +474,8 @@ function get_field_rooms($value, bool $disabled=false) : FieldSelect
                                      'multiple' => $multiroom_allowed, // If multiple is not set then required is unnecessary
                                      'required' => $multiroom_allowed, // and also causes an HTML5 validation error
                                      'disabled' => $disabled,
-                                     'size'     => '5'))
-        ->addSelectOptions($rooms[$area_id], $value, true);
+                                     'size'     => $size))
+        ->addSelectOptions($selectOptions, $value, true);
 
   // Then generate templates for all the rooms
   foreach ($rooms as $a => $area_rooms)
@@ -497,7 +505,6 @@ function get_field_rooms($value, bool $disabled=false) : FieldSelect
         'data-timezone'                 => $areas[$a]['timezone']
       ));
     $field->addElement($select);
-
   } // foreach
 
   return $field;
