@@ -1830,7 +1830,14 @@ foreach ($edit_entry_field_order as $key)
       break;
 
     case 'type':
+      if (!is_admin())
+      {
+        $form->addHiddenInput('type', $default_type);
+      }
+      else
+      {
       $fieldset->addElement(get_field_type($type));
+      }
       break;
 
     case 'confirmation_status':
