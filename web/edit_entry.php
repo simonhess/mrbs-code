@@ -679,11 +679,11 @@ function get_field_booker_name(string $value, bool $disabled=false) : Field
   if(is_admin()){
     $isRequired = false;
   }
-
+ 
   $params = array('label'    => get_loc_field_name(_tbl('entry'), $value),
-                  'name'     => 'name',
+                  'name'     => VAR_PREFIX . $value,
                   'field'    => 'entry.booker_name',
-                  'value'    => $custom_fields[$key],
+                  'value'    => (isset($custom_fields[$value])) ? $custom_fields[$value] : NULL,
                   'required' => $isRequired,
                   'disabled' => $disabled);
 
@@ -701,9 +701,9 @@ function get_field_booker_email(string $value, bool $disabled=false) : Field
   }
 
   $params = array('label'    => get_loc_field_name(_tbl('entry'), $value),
-                  'name'     => 'name',
+                  'name'     => VAR_PREFIX . $value,
                   'field'    => 'entry.booker_email',
-                  'value'    => $custom_fields[$key],
+                  'value'    => (isset($custom_fields[$value])) ? $custom_fields[$value] : NULL,
                   'required' => $isRequired,
                   'disabled' => $disabled);
 
