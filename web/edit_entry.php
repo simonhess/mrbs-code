@@ -461,7 +461,7 @@ function get_field_rooms($value, bool $disabled=false) : FieldSelect
 
   $rooms_in_area = $rooms[$area_id];
   $size=1;
-  $selectOptions=array($rooms_in_area[reset($value)]);
+  $selectOptions=array(reset($value) => $rooms_in_area[reset($value)]);
   if(is_Admin()){
      $size=5;
      $selectOptions=$rooms_in_area;
