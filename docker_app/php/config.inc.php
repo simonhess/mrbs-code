@@ -50,6 +50,10 @@ $weekstarts = 1;
 
 $default_view_all = false;
 
+// Define default starting view (month, week or day)
+// Default is day
+$default_view = "week";
+
 /*
 
 Entry settings
@@ -69,6 +73,9 @@ $vocab_override['de']['fulldescription'] = "Kommentar";
 $vocab_override['de']['fulldescription_short'] = "Kommentar";
 
 $vocab_override['de']['rooms'] = "Platz";
+
+$vocab_override['de']['username_or_email'] = "gast oder mitglied";
+
 
 
 // The maximum length of a database field for which a text input can be used on a form
