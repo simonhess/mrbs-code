@@ -77,14 +77,13 @@ function booking_level() : int
 // Gets the minimum user level required to access a page
 function get_page_level($page)
 {
-  global $auth, $max_level;
+  global $auth, $max_level, $allowPasswordReset;
 
   // If you're resetting your password you won't be logged in and $auth['deny_public_access']
   // should not apply.
-  if (in_array($page, array('reset_password.php', 'reset_password_handler.php')))
+  if (in_array($page, array('reset_password.php', 'reset_password_handler.php'))&& $allowPasswordReset)
   {
-    //return 2;
-    $result = 2;
+    return 2;
   }
 
   // Otherwise ...

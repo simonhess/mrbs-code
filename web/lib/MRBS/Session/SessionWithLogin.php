@@ -247,7 +247,9 @@ abstract class SessionWithLogin extends Session
 
     $form->addElement($fieldset);
 
-    if (auth()->canResetPassword())
+    global $allowPasswordReset;
+
+    if (auth()->canResetPassword()&&$allowPasswordReset)
     {
       $fieldset = new ElementFieldset();
       $field = new FieldDiv();

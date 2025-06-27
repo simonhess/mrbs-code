@@ -157,3 +157,6 @@ $auth['only_admin_can_see_other_users'] = true;
 // Or else you can allow them to see that there is a booking, but the
 // details will be shown as private if you set this to true.
 //$auth['force_private_for_guests'] = true;
+
+// Global variable to determine whether the password can be reset
+$allowPasswordReset=false;
