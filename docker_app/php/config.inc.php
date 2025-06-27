@@ -42,7 +42,7 @@ Calendar format
 
 
 // Set this to true to add styling to weekend days
-$style_weekends = true;
+//$style_weekends = true;
 
 // Start of week: 0 for Sunday, 1 for Monday, etc.
 $weekstarts = 1;
@@ -167,3 +167,5 @@ $auth['only_admin_can_click_past_slots_no_entry'] = true;
 // Global variable to determine whether users or only the admin can click on timeslots with existing entries 
 $auth['only_admin_can_click_slots_existing_entry'] = true;
 
+// Determine whether users or only the admin can resize existing entries 
+$auth['only_admin_can_resize_entries'] = true;

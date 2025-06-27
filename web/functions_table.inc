@@ -270,8 +270,12 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
         }
 
         // Tell JavaScript to make bookings resizable
+
+        $isResizeable = $auth['only_admin_can_resize_entries'] ? is_admin() : true;
+
         if ((count($cell) == 1) &&
-            getWritable($booking['create_by'], $booking['room_id']))
+            getWritable($booking['create_by'], $booking['room_id']) &&
+            $isResizeable)
         {
           $classes[] = 'writable';
         }
