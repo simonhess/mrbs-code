@@ -83,7 +83,8 @@ function get_page_level($page)
   // should not apply.
   if (in_array($page, array('reset_password.php', 'reset_password_handler.php')))
   {
-    return 2;
+    //return 2;
+    $result = 2;
   }
 
   // Otherwise ...
