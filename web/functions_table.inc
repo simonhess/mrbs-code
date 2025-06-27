@@ -144,7 +144,7 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
   // $is_invalid specifies whether the slot actually exists or is one of the non-existent
   // slots in the transition to DST
 
-  global $enable_periods, $show_plus_link, $prevent_booking_on_holidays, $prevent_booking_on_weekends;
+  global $enable_periods, $show_plus_link, $prevent_booking_on_holidays, $prevent_booking_on_weekends, $auth;
 
   $html = '';
   $classes = array();
@@ -186,13 +186,35 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
 
     $html .= tdcell($classes, $slots);
 
+    $cellInFuture = false;
+
+    $cell_date = Date("Y-m-d H", mktime($query_vars['new_times']['hour'],0,0,$query_vars['new_times']['month'],
+      $query_vars['new_times']['day'],$query_vars['new_times']['year']));
+    
+    // '2014-07-16 11:35:33';
+
+    // Time NOW
+    $time_now = Date("Y-m-d H");
+
+    if($cell_date >= $time_now){
+            $cellInFuture=true;
+    }else{
+            $cellInFuture=false;
+    }
+
+    $canClickCell = true;
+
     // If the room isn't booked then allow it to be booked
     if (empty($cell))
     {
+      if(!$cellInFuture && ($auth['only_admin_can_click_past_slots_no_entry'] && !is_admin())){
+      $canClickCell = false;
+      }
+
       // Don't provide a link if the slot doesn't really exist or if the user is logged in, but not a booking admin,
       // and it's a holiday/weekend and bookings on holidays/weekends are not allowed.  (We provide a link if they
       // are not logged in because they might want to click and login as an admin).
-      if ($is_invalid ||
+      if ($is_invalid || !$canClickCell ||
           ((null !== session()->getCurrentUser()) && !is_book_admin($query_vars['new_times']['room']) &&
             (($prevent_booking_on_holidays && in_array('holiday', $classes)) ||
              ($prevent_booking_on_weekends && in_array('weekend', $classes)))))
@@ -204,13 +226,18 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
         $vars = ($enable_periods) ? $query_vars['new_periods'] : $query_vars['new_times'];
         $query = http_build_query($vars, '', '&');
 
-        $html .= '<a href="' . escape_html(multisite("edit_entry.php?$query")) . '"' .
+        if($canClickCell){
+          $html .= '<a href="' . escape_html(multisite("edit_entry.php?$query")) . '"' .
                  ' aria-label="' . escape_html(get_vocab('create_new_booking')) . "\">";
-        if ($show_plus_link)
-        {
-          $html .= "<img src=\"images/new.gif\" alt=\"New\" width=\"10\" height=\"10\">";
+          if ($show_plus_link)
+          {
+            $html .= "<img src=\"images/new.gif\" alt=\"New\" width=\"10\" height=\"10\">";
+          }
+          $html .= "</a>";
+        }else{
+          $html .= "</a>";
         }
-        $html .= "</a>";
+        
       }
     }
     else                 // if it is booked then show the booking
@@ -249,14 +276,31 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
           $classes[] = 'writable';
         }
 
-        $html .= '<div class="' . implode(' ', $classes) . '">';
-        $html .= '<a href="' . escape_html(multisite("view_entry.php?$query")) . '"' .
+        if($auth['only_admin_can_click_slots_existing_entry']&& !is_admin()){
+          $canClickCell = false;
+        }
+
+        if($canClickCell){
+          $html .= '<div class="' . implode(' ', $classes) . '">';
+          $html .= '<a href="' . escape_html(multisite("view_entry.php?$query")) . '"' .
                    ' title="' . escape_html($booking['description'] ?? '') . '"' .
                    ' class="' . $booking['type'] . '"' .
                    ' data-id="' . $booking['id'] . '"' .
                    ' data-type="' . $booking['type'] . '">';
-        $html .= escape_html($booking['name']) . '</a>';
-        $html .= "</div>";
+          $html .= escape_html($booking['name']) . '</a>';
+          $html .= "</div>";
+        }else{
+          $html .= '<div class="' . implode(' ', $classes) . '">';
+          $html .= '<b ' .
+                   ' title="' . escape_html($booking['description'] ?? '') . '"' .
+                   ' class="' . $booking['type'] . '"' .
+                   ' data-id="' . $booking['id'] . '"' .
+                   ' data-type="' . $booking['type'] . '">';
+          $html .= escape_html($booking['name']) . '</b>';
+          $html .= "</div>";
+        }
+
+        
       }
     }
 

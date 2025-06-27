@@ -160,3 +160,10 @@ $auth['only_admin_can_see_other_users'] = true;
 
 // Global variable to determine whether the password can be reset
 $allowPasswordReset=false;
+
+// Global variable to determine whether users or only the admin can click on past timeslots with no entry
+$auth['only_admin_can_click_past_slots_no_entry'] = true;
+
+// Global variable to determine whether users or only the admin can click on timeslots with existing entries 
+$auth['only_admin_can_click_slots_existing_entry'] = true;
+
