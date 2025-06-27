@@ -291,12 +291,13 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
           $html .= "</div>";
         }else{
           $html .= '<div class="' . implode(' ', $classes) . '">';
-          $html .= '<b ' .
+          $html .= '<a ' .
                    ' title="' . escape_html($booking['description'] ?? '') . '"' .
                    ' class="' . $booking['type'] . '"' .
                    ' data-id="' . $booking['id'] . '"' .
+                   ' style="font-weight:bold' . '"' .
                    ' data-type="' . $booking['type'] . '">';
-          $html .= escape_html($booking['name']) . '</b>';
+          $html .= escape_html($booking['name']) . '</a>';
           $html .= "</div>";
         }
 
