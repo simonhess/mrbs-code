@@ -111,6 +111,20 @@ $eveningends_minutes   = 0;   // must be integer in range 0-59
 // other people can register.
 $enable_registration = false;
 
+
+// DEFAULT VALUES FOR NEW AREAS
+
+// Creating new bookings
+$min_create_ahead_enabled = true;    // set to TRUE to enforce a minimum advance booking time
+$max_create_ahead_enabled = true;    // set to TRUE to enforce a maximum advance booking time
+
+// DEFAULT VALUES FOR NEW AREAS
+
+// Creating new bookings
+$min_create_ahead_secs = 0;           // (seconds) cannot book in the past
+$max_create_ahead_secs = 60*60*24*7;  // (seconds) no more than one week ahead
+
+
 /*
 
 Admin settings
