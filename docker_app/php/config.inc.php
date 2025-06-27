@@ -61,7 +61,8 @@ Entry settings
 */
 
 // Default brief description for new bookings
-$default_name = "Platzbuchung";
+$default_name = "Buchung";
+
 
 $edit_entry_field_order = array('name', 'booker_name', 'booker_email', 'description');
 
@@ -75,6 +76,11 @@ $vocab_override['de']['fulldescription_short'] = "Kommentar";
 $vocab_override['de']['rooms'] = "Platz";
 
 $vocab_override['de']['username_or_email'] = "gast oder mitglied";
+
+
+$vocab_override["de"]["type.I"] =     "Buchung";
+
+$vocab_override["de"]["type.E"] =     "Training";
 
 
 
@@ -101,7 +107,9 @@ $morningstarts_minutes = 0;   // must be integer in range 0-59
 $eveningends           = 23;  // must be integer in range 0-23
 $eveningends_minutes   = 0;   // must be integer in range 0-59
 
-
+// Set this to false if you do not want to have the ability to create events for which
+// other people can register.
+$enable_registration = false;
 
 /*
 
