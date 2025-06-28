@@ -10,6 +10,10 @@ $db_password = "mrbs";
 $db_tbl_prefix = "mrbs_";
 $db_persist = FALSE;
 
+/* Style */
+
+$theme = "modern";
+
 
 /**********
  * Language
