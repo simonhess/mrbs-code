@@ -2862,6 +2862,14 @@ tbody tr th {
   border-bottom: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_h_border_color ?>;
 }
 
+td.new a{
+  visibility: hidden;
+}
+
+td.new:hover a{
+  visibility: visible;
+}
+
 tr:nth-child(odd) td.new:has(.not_allowed),
 .all_rooms tr:nth-child(odd) td {
 

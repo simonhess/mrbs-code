@@ -190,8 +190,6 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
 
     $cell_date = Date("Y-m-d H", mktime($query_vars['new_times']['hour'],0,0,$query_vars['new_times']['month'],
       $query_vars['new_times']['day'],$query_vars['new_times']['year']));
-    
-    // '2014-07-16 11:35:33';
 
     // Time NOW
     $time_now = Date("Y-m-d H");
@@ -233,6 +231,8 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
           {
             $html .= "<img src=\"images/new.gif\" alt=\"New\" width=\"10\" height=\"10\">";
           }
+          $html .= hour_min($query_vars['new_times']['hour']*3600);
+
           $html .= "</a>";
         }else{
           $html .= "</a>";
