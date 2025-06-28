@@ -2849,5 +2849,40 @@ nav.qr {
   transform: translateY(-50%);
 }
 
+/* Custom css */
 
+.dwm_main td,
+.dwm_main tbody td + th {
+  border-right: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_v_border_color ?>;
+  border-bottom: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_h_border_color ?>;
+  text-align: center;
+}
 
+tbody tr th {
+  border-bottom: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_h_border_color ?>;
+}
+
+tr:nth-child(odd) td.new:has(.not_allowed),
+.all_rooms tr:nth-child(odd) td {
+
+  background: repeating-linear-gradient(
+  45deg,
+<?php echo $row_not_allowed_color_first ?> 0,
+  <?php echo $row_not_allowed_color_first ?> 20px,
+  <?php echo $row_not_allowed_color_second ?> 20px,
+  <?php echo $row_not_allowed_color_second ?> 40px
+);
+
+}
+
+tr:nth-child(even) td.new:has(.not_allowed),
+.all_rooms tr:nth-child(even) td {
+
+  background: repeating-linear-gradient(
+  45deg,
+<?php echo $row_not_allowed_color_second ?> 0,
+  <?php echo $row_not_allowed_color_second ?> 20px,
+  <?php echo $row_not_allowed_color_first ?> 20px,
+  <?php echo $row_not_allowed_color_first ?> 40px
+);
+}

@@ -31,7 +31,7 @@ $admin_table_border_color       = "#C3CCD3";
 
 $main_table_border_color        = "#dddddd";    // border colour for day/week/month tables - outside
 $main_table_header_border_color = "#dddddd";    // border colour for day/week/month tables - header
-$main_table_body_h_border_color = "#ffffff";    // border colour for day/week/month tables - body, horizontal
+$main_table_body_h_border_color = "#e4e4e4";    // border colour for day/week/month tables - body, horizontal
 $main_table_body_v_border_color = "#e4e4e4";    // border colour for day/week/month tables - body, vertical
 $main_table_month_color         = "#ffffff";    // background colour for days in the month view
 $main_table_month_weekend_color = "#f4f4f4";    // background colour for weekends in the month view
@@ -85,6 +85,10 @@ $row_odd_color_holiday          = "#d8d8d8"; // odd rows in the day and week vie
 $row_even_color_weekend_holiday = "#dfdfdf"; // even rows in the day and week views for weekend holidays
 $row_odd_color_weekend_holiday  = "#cfcfcf"; // odd rows in the day and week views for weekend holidays
 
+$row_not_allowed_color_first      = "#f6f6f6"; // fist color for rows which are not allowed
+$row_not_allowed_color_second      = "#e8e8e8"; // fist color for rows which are not allowed
+
+
 $zebra_even_color = "#ffffff";  // Colour for even rows in other tables (eg Search, Report and Users)
 $zebra_odd_color  = '#e2e4ff';  // Colour for odd rows in other tables (eg Search, Report and Users)
 
@@ -118,7 +122,7 @@ $attention_color           = 'darkorange';  // background colour for the number 
 // ***** DIMENSIONS *******************
 $banner_border_width          = '0';  // (px)  border width for the outside of the banner
 $banner_border_cell_width     = '1';  // (px)  border width for the cells of the banner
-$main_table_border_width      = '0';  // (px)  border width for the outside of the main day/week/month tables
+$main_table_border_width      = '1';  // (px)  border width for the outside of the main day/week/month tables
 $main_table_cell_border_width = '1';  // (px)  vertical border width for the cells of the main day/week/month tables
 $main_cell_height             = '1.5em';  // height of the cells in the main day/week tables
 
