@@ -2856,6 +2856,7 @@ nav.qr {
   border-right: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_v_border_color ?>;
   border-bottom: <?php echo $main_table_cell_border_width ?>px solid <?php echo $main_table_body_h_border_color ?>;
   text-align: center;
+  font-weight: bold;
 }
 
 tbody tr th {

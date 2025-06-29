@@ -299,7 +299,6 @@ function cell_html(array $cell, array $query_vars, bool $is_invalid = false) : s
                    ' title="' . escape_html($booking['description'] ?? '') . '"' .
                    ' class="' . $booking['type'] . '"' .
                    ' data-id="' . $booking['id'] . '"' .
-                   ' style="font-weight:bold' . '"' .
                    ' data-type="' . $booking['type'] . '">';
           $html .= escape_html($booking['name']) . '</a>';
           $html .= "</div>";
