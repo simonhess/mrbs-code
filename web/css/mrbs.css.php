@@ -2895,3 +2895,11 @@ tr:nth-child(even) td.new:has(.not_allowed),
   <?php echo $row_not_allowed_color_first ?> 40px
 );
 }
+
+.dwm_main thead tr:last-child th {
+  border-bottom: 1px solid <?php echo $main_table_border_color ?>;
+}
+
+.dwm_main tfoot tr:first-child th {
+  border-top: 1px solid <?php echo $main_table_border_color ?>;
+}
