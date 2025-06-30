@@ -878,8 +878,10 @@ function get_date(int $t, string $view) : string
 
 function get_day(int $t, string $view) : string
 {
+  global $datetime_formats;
+
   // In the month view use a pattern which will tend to give a narrower result, to save space.
-  $pattern = ($view == 'month') ? 'cccccc' : 'ccc';
+  $pattern = ($view == 'month') ? 'cccccc' : $datetime_formats['day_name']['pattern'];
 
   return datetime_format(['pattern' => $pattern], $t);
 }

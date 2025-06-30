@@ -58,6 +58,16 @@ $default_view_all = false;
 // Default is day
 $default_view = "week";
 
+// The default format for day names
+$datetime_formats['day_name'] = array(
+  'pattern' => 'cccc'
+);
+
+// To display the row labels (times, rooms or days) on the right hand side as well as the
+// left hand side in the day and week views, set to true;
+// (was called $times_right_side in earlier versions of MRBS)
+//$row_labels_both_sides = true;
+
 /*
 
 Entry settings
