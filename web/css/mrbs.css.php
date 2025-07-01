@@ -2903,3 +2903,7 @@ tr:nth-child(even) td.new:has(.not_allowed),
 .dwm_main tfoot tr:first-child th {
   border-top: 1px solid <?php echo $main_table_border_color ?>;
 }
+
+th[data-room] {
+  border-top: 1px solid <?php echo $main_table_border_color ?>;
+}
