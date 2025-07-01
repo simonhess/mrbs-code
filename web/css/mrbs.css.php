@@ -2871,8 +2871,7 @@ td.new:hover a{
   visibility: visible;
 }
 
-tr:nth-child(odd) td.new:has(.not_allowed),
-.all_rooms tr:nth-child(odd) td {
+tr:nth-child(odd) td.new:has(.not_allowed){
 
   background: repeating-linear-gradient(
   45deg,
@@ -2884,8 +2883,7 @@ tr:nth-child(odd) td.new:has(.not_allowed),
 
 }
 
-tr:nth-child(even) td.new:has(.not_allowed),
-.all_rooms tr:nth-child(even) td {
+tr:nth-child(even) td.new:has(.not_allowed){
 
   background: repeating-linear-gradient(
   45deg,
