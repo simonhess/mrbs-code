@@ -850,15 +850,12 @@ function get_flex_div(int $slots, $classes, ?string $title=null, ?string $text=n
 
 function week_table_innerhtml(string $view, int $view_all, int $year, int $month, int $day, int $area_id, int $room_id, ?int $timetohighlight) : string
 {
-  global $multiday_view_all_rooms_rooms_top;
+  global $multiday_view_all_rooms_along_top;
 
-  if($multiday_view_all_rooms_rooms_top){
-    return week_multi_room_table_innerhtml($view, $view_all, $year, $month, $day, $area_id, $room_id, $timetohighlight);
-  }
   if ($view_all)
   {
-    if($multiday_view_all_rooms_rooms_top){
-    return week_multi_room_table_innerhtml($view, $view_all, $year, $month, $day, $area_id, $room_id, $timetohighlight);
+    if($multiday_view_all_rooms_along_top){
+    return multiday_view_all_rooms_along_top_innerhtml($view, $view_all, $year, $month, $day, $area_id, $room_id, $timetohighlight);
     }else{
     return multiday_view_all_rooms_innerhtml($view, $view_all, $year, $month, $day, $area_id, $room_id);
 
@@ -1357,19 +1354,21 @@ function get_slots(int $month, int $day, int $year, int $n_days=1, bool $day_cel
   return $slots;
 }
 
-function week_multi_room_table_innerhtml(string $view, int $view_all, int $year, int $month, int $day, int $area_id, int $room_id, ?int $timetohighlight=null) : string
+function multiday_view_all_rooms_along_top_innerhtml(string $view, int $view_all, int $year, int $month, int $day, int $area_id, int $room_id, ?int $timetohighlight=null) : string
 {
   global $enable_periods;
   global $times_along_top, $row_labels_both_sides, $column_labels_both_ends;
   global $resolution, $morningstarts, $morningstarts_minutes;
   global $weekstarts, $datetime_formats;
-  global $multiday_view_all_rooms_rooms_top_max_rooms;
+  global $multiday_view_all_rooms_along_top_max_rooms;
+
+  $view_all = 0;
 
   $rooms = get_rooms($area_id);
 
   if(is_null($rooms)==false){
-    if(count($rooms)>$multiday_view_all_rooms_rooms_top_max_rooms){
-      $rooms = array_slice($rooms, 0, $multiday_view_all_rooms_rooms_top_max_rooms);
+    if(count($rooms)>$multiday_view_all_rooms_along_top_max_rooms){
+      $rooms = array_slice($rooms, 0, $multiday_view_all_rooms_along_top_max_rooms);
     }
   }
 

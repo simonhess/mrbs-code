@@ -499,12 +499,14 @@ echo get_calendar_nav($view, $view_all, $year, $month, $day, $area, $room);
 
 echo message_html();
 
+global $multiday_view_all_rooms_along_top;
+
 $classes = array('dwm_main');
 if ($times_along_top)
 {
   $classes[] .= 'times-along-top';
 }
-if ($view_all && ($view !== 'day'))
+if ($view_all && ($view !== 'day') && (($view == 'week') && !$multiday_view_all_rooms_along_top))
 {
   $classes[] = 'all_rooms';
 }

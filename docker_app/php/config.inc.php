@@ -46,11 +46,11 @@ Calendar format
 
 // Global variable that determines how many rooms the multiday view with rooms at top should show at maximum
 
-$multiday_view_all_rooms_rooms_top_max_rooms=2;
+$multiday_view_all_rooms_along_top_max_rooms=2;
 
 // Global variable that determines whether rooms should be shown at the top of the week all rooms view
 
-$multiday_view_all_rooms_rooms_top = true;
+$multiday_view_all_rooms_along_top = true;
 
 // Whether or not the mini-calendars are displayed.  (Note that mini-calendars are only
 // displayed anyway if the window is wide enough.)
