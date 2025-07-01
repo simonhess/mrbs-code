@@ -44,6 +44,12 @@ Calendar format
 
 */
 
+// Determines if a link should be included in every time cell
+$link_in_time_cell = false;
+
+// Determines if a link should be included in every room cell
+$link_in_room_cell = false;
+
 // Global variable that determines how many rooms the multiday view with rooms at top should show at maximum
 
 $multiday_view_all_rooms_along_top_max_rooms=2;

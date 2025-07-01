@@ -334,12 +334,16 @@ function get_timeslot_text(int $s, int $resolution) : string
 //    $url               the url to form the basis of the link in the time cell
 function time_cell_html(int $s, string $url) : string
 {
-  global $enable_periods, $resolution;
+  global $enable_periods, $resolution, $link_in_time_cell;
 
   $html = '';
 
   $html .= "<th data-seconds=\"$s\">";
-  $html .= '<a href="' . escape_html($url) . '"  title="' . get_vocab("highlight_line") . "\">";
+  if($link_in_time_cell){
+    $html .= '<a href="' . escape_html($url) . '"  title="' . get_vocab("highlight_line") . "\">";
+  }else{
+    $html .= '<a title="' . get_vocab("highlight_line") . "\">"; 
+  }
 
   if ($enable_periods)
   {
@@ -362,6 +366,7 @@ function room_cell_html(array $room, array $vars) : string
 {
   $link = 'index.php?' . http_build_query($vars, '', '&');
   $link = multisite($link);
+  global $link_in_room_cell;
 
   switch ($vars['view'])
   {
@@ -383,8 +388,13 @@ function room_cell_html(array $room, array $vars) : string
   $title = get_vocab($tag) . "\n\n" . $room['description'];
   $html = '';
   $html .= '<th data-room="' . escape_html($room['id']) . '">';
-  $html .= '<a href="' . escape_html($link) . '"' .
+  if($link_in_room_cell){
+    $html .= '<a href="' . escape_html($link) . '"' .
            ' title = "' . escape_html($title) . '">';
+  }else{
+    $html .= '<a title = "' . escape_html($title) . '">';
+  }
+  
   $html .= escape_html($room['room_name']);
   // Put the capacity in a span to give flexibility in styling
   $html .= '<span class="capacity';
