@@ -2931,3 +2931,7 @@ nav.arrow a:focus {
 th[data-room] {
   border-top: 1px solid <?php echo $main_table_border_color ?>;
 }
+
+.dwm_main thead th, .dwm_main th:first-child {
+      background-color: <?php echo $main_table_header_back_color ?>;
+}
