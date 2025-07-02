@@ -2865,6 +2865,9 @@ tbody tr th {
 
 td.new a{
   visibility: hidden;
+  font-weight: normal;
+  font-size: 1em;
+  text-decoration: none;
 }
 
 td.new:hover a{
