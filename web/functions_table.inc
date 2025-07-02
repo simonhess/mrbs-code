@@ -1370,9 +1370,10 @@ function multiday_view_all_rooms_along_top_innerhtml(string $view, int $view_all
   global $times_along_top, $row_labels_both_sides, $column_labels_both_ends;
   global $resolution, $morningstarts, $morningstarts_minutes;
   global $weekstarts, $datetime_formats;
-  global $multiday_view_all_rooms_along_top_max_rooms;
+  global $multiday_view_all_rooms_along_top_max_rooms, $default_view_all;
 
-  $view_all = 0;
+
+  $view_all = $default_view_all ? 1:0;
 
   $rooms = get_rooms($area_id);
 
