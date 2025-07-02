@@ -69,7 +69,7 @@ $display_mincals = false;
 $weekstarts = 1;
 
 
-$default_view_all = false;
+$default_view_all = true;
 
 // Define default starting view (month, week or day)
 // Default is day
