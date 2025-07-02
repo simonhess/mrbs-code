@@ -7,13 +7,13 @@ namespace MRBS;
 // ***** COLOURS ************************
 // Colours used in MRBS.    All the colours are defined here as PHP variables
 
-$body_background_color          = "#f9fbfc";    // background colour for the main body
+$body_background_color          = "#fcfcfc";    // background colour for the main body
 $standard_font_color            = "#0B263B";    // default font color
-$header_font_color              = "#ffffff";    // font color for text in headers
-$highlight_font_color           = "#ff0066";    // used for highlighting text (eg links, errors)
+$header_font_color              = "#0B263B";    // font color for text in headers
+$highlight_font_color           = "#0B263B";    // used for highlighting text (eg links, errors)
 $color_key_font_color           = $standard_font_color;    // used in the colour key table
 
-$banner_back_color              = "#1976D2";    // background colour for banner
+$banner_back_color              = "#eff0f1";    // background colour for banner
 $banner_border_color            = $body_background_color;    // border colour for banner
 $banner_font_color              = $header_font_color;       // font colour for banner
 $banner_nav_hover_color         = 'darkblue';   // background colour when header links are hovered over
@@ -21,8 +21,8 @@ $banner_nav_hover_color         = 'darkblue';   // background colour when header
 $minical_view_color             = "#2b3a42";    // used for highlighting the dates in the current view
 $minical_today_color            = "#bdd4de";    // used for highlighting today
 
-$header_back_color              = $banner_back_color;  // background colour for headers
-$flatpickr_highlight_color      = $banner_back_color;  // used for highlighting the date
+$header_back_color              = "#1976D2";  // background colour for headers
+$flatpickr_highlight_color      = "#1976D2";  // used for highlighting the date
 
 $admin_table_header_back_color  = $header_back_color;     // background colour for header and also border colour for table cells
 $admin_table_header_sep_color   = $body_background_color; // vertical separator colour in header
@@ -76,7 +76,7 @@ $anchor_hover_color_header      = $anchor_link_color_header;   // link color (ho
 
 $column_hidden_color            = $main_table_month_invalid_color;    // hidden days in the week and month views
 $calendar_hidden_color          = "#dae0e4";                          // hidden days in the mini-cals
-$row_highlight_color            = $banner_back_color;  // used for highlighting a row
+$row_highlight_color            = "#1976D2";  // used for highlighting a row
 $row_highlight_text_color       ="#ffffff";  // used for highlighting a row
 $row_even_color                 = "#ffffff"; // even rows in the day and week views
 $row_odd_color                  = "#ffffff"; // odd rows in the day and week views
