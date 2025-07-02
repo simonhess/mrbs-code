@@ -2897,6 +2897,13 @@ tr:nth-child(even) td.new:has(.not_allowed){
 );
 }
 
+
+tr:nth-child(even) td.new:has(.not_allowed), tr:nth-child(odd) td.new:has(.not_allowed){
+  background: transparent;
+  background-color: <?php echo $row_not_allowed_color_first ?>;
+  
+}
+
 .dwm_main thead tr:last-child th {
   border-bottom: 1px solid <?php echo $main_table_border_color ?>;
 }

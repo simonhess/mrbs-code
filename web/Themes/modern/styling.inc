@@ -85,8 +85,8 @@ $row_odd_color_holiday          = "#d8d8d8"; // odd rows in the day and week vie
 $row_even_color_weekend_holiday = "#dfdfdf"; // even rows in the day and week views for weekend holidays
 $row_odd_color_weekend_holiday  = "#cfcfcf"; // odd rows in the day and week views for weekend holidays
 
-$row_not_allowed_color_first      = "#f6f6f6"; // fist color for rows which are not allowed
-$row_not_allowed_color_second      = "#e8e8e8"; // fist color for rows which are not allowed
+$row_not_allowed_color_first      = "#afafaf"; // fist color for rows which are not allowed
+$row_not_allowed_color_second      = "#afafaf"; // second color for rows which are not allowed
 
 
 $zebra_even_color = "#ffffff";  // Colour for even rows in other tables (eg Search, Report and Users)
