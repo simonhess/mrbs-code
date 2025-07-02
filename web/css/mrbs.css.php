@@ -2904,6 +2904,22 @@ tr:nth-child(even) td.new:has(.not_allowed), tr:nth-child(odd) td.new:has(.not_a
   
 }
 
+nav a.selected,
+nav.view a:hover,
+nav.view a:focus,
+nav.arrow a:hover,
+nav.arrow a:focus {
+  background: <?php echo $banner_back_color ?>;
+  box-shadow: inset 1px 1px <?php echo $button_inset_color ?>;
+  color: <?php echo $standard_font_color ?>;
+  text-decoration: none;
+}
+
+.dwm_main tbody tr:hover th a,
+.dwm_main th.highlight a {
+  color: <?php echo $standard_font_color ?>;;
+}
+
 .dwm_main thead tr:last-child th {
   border-bottom: 1px solid <?php echo $main_table_border_color ?>;
 }
