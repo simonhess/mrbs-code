@@ -129,5 +129,5 @@ $main_cell_height             = '1.5em';  // height of the cells in the main day
 
 
 // ***** FONTS ************************
-$standard_font_family  = "Arial, 'Arial Unicode MS', Verdana, sans-serif";
+$standard_font_family  = "Helvetica, Arial, 'Arial Unicode MS', Verdana, sans-serif";
 
