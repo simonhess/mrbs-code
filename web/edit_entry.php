@@ -9,6 +9,7 @@ use MRBS\Form\ElementInputDate;
 use MRBS\Form\ElementInputHidden;
 use MRBS\Form\ElementInputRadio;
 use MRBS\Form\ElementInputSubmit;
+use MRBS\Form\FieldInputEmail;
 use MRBS\Form\ElementLabel;
 use MRBS\Form\ElementSelect;
 use MRBS\Form\ElementSpan;
@@ -713,8 +714,21 @@ function get_field_booker_email(string $value, bool $disabled=false) : Field
                   'value'    => (isset($custom_fields[$value])) ? $custom_fields[$value] : NULL,
                   'required' => $isRequired,
                   'disabled' => $disabled);
+  
+  $field = new FieldInputEmail();
 
-  return get_field_entry_input($params);
+  $field->setLabel($params['label'])
+        ->setControlAttributes(array('name'     => $params['name'],
+                                     'value'    => $params['value'],
+                                     'required' => $params['required'],
+                                     'disabled' => $disabled));
+
+  if (null !== ($maxlength = maxlength('users.email')))
+  {
+    $field->setControlAttribute('maxlength', $maxlength);
+  }
+
+  return $field;
 }
 
 

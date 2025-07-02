@@ -733,6 +733,21 @@ if (isset($rep_type) && ($rep_type != RepeatRule::NONE) &&
   exit;
 }
 
+// Check if booker e-mail is valid
+if (isset($custom_fields['booker_email']) && !is_admin() && !validate_email_list($custom_fields['booker_email'])) {
+
+  $start_hours = $start_seconds/60/60;
+  $rest_seconds = 0;
+
+  $query_string ="view=$view&year=$year&month=$month&day=$day&area=$area&room=$room&hour=$start_hours&minute=$rest_seconds";
+
+  $query_string .= "&invalid_email=1";
+
+  location_header("edit_entry.php?$query_string");
+
+}
+
+
 
 // (4) Assemble the booking data
 // -----------------------------
