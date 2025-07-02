@@ -231,6 +231,7 @@ function get_location_nav(string $view, int $view_all, int $year, int $month, in
 
 function get_view_nav(string $current_view, int $view_all, int $year, int $month, int $day, int $area, int $room) : string
 {
+  global $default_view_all;
   $html = '';
 
   $html .= '<nav class="view">';
@@ -242,7 +243,7 @@ function get_view_nav(string $current_view, int $view_all, int $year, int $month
 
   foreach ($views as $view => $token)
   {
-    $this_view_all = $view_all ?? 1;
+    $this_view_all =  ($default_view_all ||isset($view_all)) ? 1:0;
 
     $vars = array('view'      => $view,
                   'view_all'  => $this_view_all,
