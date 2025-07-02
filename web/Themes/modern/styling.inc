@@ -29,10 +29,10 @@ $admin_table_header_sep_color   = $body_background_color; // vertical separator 
 $admin_table_header_font_color  = $header_font_color;     // font colour for header
 $admin_table_border_color       = "#C3CCD3";
 
-$main_table_border_color        = "#dddddd";    // border colour for day/week/month tables - outside
-$main_table_header_border_color = "#dddddd";    // border colour for day/week/month tables - header
-$main_table_body_h_border_color = "#e4e4e4";    // border colour for day/week/month tables - body, horizontal
-$main_table_body_v_border_color = "#e4e4e4";    // border colour for day/week/month tables - body, vertical
+$main_table_border_color        = "#646464";    // border colour for day/week/month tables - outside
+$main_table_header_border_color = "#646464";    // border colour for day/week/month tables - header
+$main_table_body_h_border_color = "#646464";    // border colour for day/week/month tables - body, horizontal
+$main_table_body_v_border_color = "#646464";    // border colour for day/week/month tables - body, vertical
 $main_table_month_color         = "#ffffff";    // background colour for days in the month view
 $main_table_month_weekend_color = "#f4f4f4";    // background colour for weekends in the month view
 $main_table_month_holiday_color = "#e8e8e8";    // background colour for holidays in the month view
