@@ -2868,6 +2868,7 @@ td.new a{
   font-weight: normal;
   font-size: 1em;
   text-decoration: none;
+  color: <?php echo $row_highlight_text_color ?>;
 }
 
 td.new:hover a{
@@ -2917,7 +2918,7 @@ nav.arrow a:focus {
 
 .dwm_main tbody tr:hover th a,
 .dwm_main th.highlight a {
-  color: <?php echo $standard_font_color ?>;;
+  color: <?php echo $row_highlight_text_color ?>;
 }
 
 .dwm_main thead tr:last-child th {

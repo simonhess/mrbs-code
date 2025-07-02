@@ -77,6 +77,7 @@ $anchor_hover_color_header      = $anchor_link_color_header;   // link color (ho
 $column_hidden_color            = $main_table_month_invalid_color;    // hidden days in the week and month views
 $calendar_hidden_color          = "#dae0e4";                          // hidden days in the mini-cals
 $row_highlight_color            = $banner_back_color;  // used for highlighting a row
+$row_highlight_text_color       ="#ffffff";  // used for highlighting a row
 $row_even_color                 = "#ffffff"; // even rows in the day and week views
 $row_odd_color                  = "#ffffff"; // odd rows in the day and week views
 $row_even_color_weekend         = "#f4f4f4"; // even rows in the day and week views for weekends
