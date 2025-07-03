@@ -10,10 +10,15 @@ $db_password = "mrbs";
 $db_tbl_prefix = "mrbs_";
 $db_persist = FALSE;
 
+// Whether kiosk mode is enabled
+$kiosk_mode_enabled = false;
+
+// Default mode for kiosk mode.  Can be 'room' or 'area'.
+$kiosk_default_mode = 'room';
+
 /* Style */
 
 $theme = "modern";
-
 
 /**********
  * Language
@@ -97,6 +102,14 @@ Entry settings
 
 */
 
+
+// Below is a basic default array which ensures there are at least some types defined.
+// The proper type definitions should be made in config.inc.php.
+//
+// Each type has a color which is defined in the array $color_types in the styling.inc
+// file in the Themes directory
+$booking_types[] = "A";
+
 // Default brief description for new bookings
 $default_name = "Buchung";
 
@@ -118,6 +131,8 @@ $vocab_override['de']['username_or_email'] = "gast oder mitglied";
 $vocab_override["de"]["type.I"] =     "Buchung";
 
 $vocab_override["de"]["type.E"] =     "Training";
+
+$vocab_override["de"]["type.A"] =     "Medenspiel";
 
 
 
