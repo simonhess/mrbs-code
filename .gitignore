@@ -11,3 +11,4 @@ web/config.inc.php
 /hg-code.iml
 /nbproject
 /.vs
+/docker_app_certbot_letsencrypt
