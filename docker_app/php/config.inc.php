@@ -43,6 +43,80 @@ $mrbs_company = "";
 
 $vocab_override['de']['mrbs'] = "TC Nüsttal Platzbuchungssystem";
 
+// E-Mail configuration
+
+$include_link_to_action_in_mail = false;
+
+$vocab['de']["mail_body_new_entry"]     = "Hallo %s, Sie haben erfolgreich den Platz mit den folgenden Daten gebucht:";
+$vocab['de']["mail_subject_new_entry"]     = "Buchungsbestätigung für %s.";
+
+// HOW TO EMAIL - BACKEND
+// ----------------------
+// Set the name of the backend used to transport your mails. Either 'mail',
+// 'smtp', 'sendmail' or 'qmail'. Default is 'mail'.
+$mail_settings['admin_backend'] = 'mail';
+
+
+// WHO TO EMAIL
+// ------------
+// The following settings determine who should be emailed when a booking is made,
+// edited or deleted (though the latter two events depend on the "When" settings below).
+// Set to true or false as required
+// (Note:  the email addresses for the area and room administrators are set from the
+// edit_area.php and edit_room.php pages in MRBS)
+$mail_settings['admin_on_bookings']      = false;  // the addresses defined by $mail_settings['recipients'] below
+$mail_settings['area_admin_on_bookings'] = false;  // the area administrator
+$mail_settings['room_admin_on_bookings'] = false;  // the room administrator
+$mail_settings['booker']                 = true;  // the person making the booking
+$mail_settings['book_admin_on_approval'] = false;  // the booking administrator when booking approval is enabled
+                                                   // (which is the MRBS admin, but this setting allows MRBS
+                                                   // to be extended to have separate booking approvers)
+
+// WHEN TO EMAIL
+// -------------
+// These settings determine when an email should be sent.
+// Set to true or false as required
+//
+// (Note:  (a) the variables $mail_settings['admin_on_delete'] and
+// $mail_settings['admin_all'], which were used in MRBS versions 1.4.5 and
+// before are now deprecated.   They are still supported for reasons of backward
+// compatibility, but they may be withdrawn in the future.  (b)  the default
+// value of $mail_settings['on_new'] is true for compatibility with MRBS 1.4.5
+// and before, where there was no explicit config setting, but mails were always sent
+// for new bookings if there was somebody to send them to)
+
+$mail_settings['on_new']    = true;   // when an entry is created
+$mail_settings['on_change'] = false;  // when an entry is changed
+$mail_settings['on_delete'] = false;  // when an entry is deleted
+
+// WHAT TO EMAIL
+// -------------
+// These settings determine what should be included in the email
+// Set to true or false as required
+$mail_settings['details']   = true; // Set to true if you want full booking details;
+                                     // otherwise you just get a link to the entry
+
+// HOW TO EMAIL - LANGUAGE
+// -----------------------------------------
+
+$mail_settings['admin_lang'] = 'de';   // Default is 'en'.
+
+/*******************
+ * SMTP settings
+ */
+
+// These settings are only used with the "smtp" backend
+$smtp_settings['host'] = 'localhost';  // SMTP server
+$smtp_settings['port'] = 465;           // SMTP port number
+$smtp_settings['auth'] = false;        // Whether to use SMTP authentication
+$smtp_settings['secure'] = 'tsl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+                                       // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
+                                       // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
+                                       // set to true.
+$smtp_settings['username'] = '';       // Username (if using authentication)
+$smtp_settings['password'] = '';       // Password (if using authentication)
+
+
 /* 
 
 Calendar format 

@@ -353,6 +353,7 @@ function create_body(array $data, ?array $mail_previous, bool $compare, bool $se
   global $enable_periods, $approval_enabled, $confirmation_enabled;
   global $mail_settings, $standard_fields;
   global $select_options, $booking_types;
+  global $include_link_to_action_in_mail;
 
   // If we haven't got a previous entry just give it one.   It won't get used,
   // but will prevent a series if undefined index notices.
@@ -444,7 +445,7 @@ function create_body(array $data, ?array $mail_previous, bool $compare, bool $se
 
   // Create a link to the entry, unless we're deleting it of course,
   // because then there won't be one.
-  if (($action != "delete") && ($action != "reject"))
+  if (($action != "delete") && ($action != "reject") && $include_link_to_action_in_mail)
   {
     $body .= ($as_html) ? '</p><p>' : MAIL_EOL . MAIL_EOL;
     $body .= ($as_html) ? '<a target="_blank" href="' : '';
