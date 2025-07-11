@@ -826,7 +826,7 @@ function create_addresses(array $data, string $action) : array
       $to = array();
     }
     $booker = auth()->getUser($data['create_by']);
-    if (!empty($booker->email))
+    if (!strlen($data['booker_email']) === 0)
     {
       // $to[] = $booker->mailbox();
       $to[] = $data['booker_email'];
