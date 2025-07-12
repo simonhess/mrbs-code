@@ -2936,3 +2936,34 @@ th[data-room] {
 .dwm_main thead th, .dwm_main th:first-child {
       background-color: <?php echo $main_table_header_back_color ?>;
 }
+
+.dwm_main .booked a,
+.all_rooms td a div:not(.free) {
+  border-bottom: none;
+}
+
+.banner nav a,
+nav.logon input {
+  //background-color: <?php echo $body_background_color ?>;
+  background: linear-gradient(<?php echo implode(', ', $button_color_stops)?>);
+}
+
+.banner nav a:hover,
+nav.logon input:hover {
+  background: <?php echo $banner_nav_hover_color ?>;
+}
+
+.banner nav.container {
+padding: 0;
+}
+
+.banner nav.container > nav {
+padding: 0;
+}
+
+.banner nav a, nav.logon input, nav.logon span {
+    
+    border-radius: 0;
+    border-left: 3px solid <?php echo $banner_back_color ?>;
+    padding: 1rem 0.75rem 1rem 0.75rem;
+}
