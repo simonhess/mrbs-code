@@ -825,10 +825,9 @@ function create_addresses(array $data, string $action) : array
       $cc = array_merge($cc, $to);
       $to = array();
     }
-    $booker = auth()->getUser($data['create_by']);
-    if (!strlen($data['booker_email']) === 0)
+
+    if (!empty($data['booker_email']))
     {
-      // $to[] = $booker->mailbox();
       $to[] = $data['booker_email'];
     }
   }
