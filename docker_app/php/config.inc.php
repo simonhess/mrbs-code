@@ -47,8 +47,20 @@ $vocab_override['de']['mrbs'] = "TC Nüsttal Platzbuchungssystem";
 
 $include_link_to_action_in_mail = false;
 
-$vocab['de']["mail_body_new_entry"]     = "Hallo %s, Sie haben erfolgreich den Platz mit den folgenden Daten gebucht:";
-$vocab['de']["mail_subject_new_entry"]     = "Buchungsbestätigung für %s.";
+$vocab_override['de']["mail_body_new_entry"]     = "Hallo %s, Sie haben erfolgreich einen Platz mit den folgenden Daten gebucht:";
+$vocab_override['de']["mail_subject_new_entry"]     = "Buchungsbestätigung %s";
+
+// BASIC SETTINGS
+// --------------
+
+// Set the email address of the From field. Default is 'admin_email@your.org'
+$mail_settings['from'] = 'admin_email@your.org';
+
+// By default MRBS will send some emails (eg booking approval emails) as though they have come from
+// the user, rather than the From address above.   However some email servers will not allow this in
+// order to prevent email spoofing.   If this is the case then set this to true in order that the
+// From address above is used for all emails.
+$mail_settings['use_from_for_all_mail'] = true;
 
 // HOW TO EMAIL - BACKEND
 // ----------------------
