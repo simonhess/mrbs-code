@@ -198,6 +198,8 @@ $vocab_override['de']['fulldescription'] = "Kommentar";
 $vocab_override['de']['fulldescription_short'] = "Kommentar";
 
 $vocab_override['de']['rooms'] = "Platz";
+$vocab_override['de']['room'] = "Platz";
+
 
 $vocab_override['de']['username_or_email'] = "gast oder mitglied";
 
