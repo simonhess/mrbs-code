@@ -2942,12 +2942,6 @@ th[data-room] {
   border-bottom: none;
 }
 
-.banner nav a,
-nav.logon input {
-  //background-color: <?php echo $body_background_color ?>;
-  background: linear-gradient(<?php echo implode(', ', $button_color_stops)?>);
-}
-
 .banner nav a:hover,
 nav.logon input:hover {
   background: <?php echo $banner_nav_hover_color ?>;
@@ -2961,9 +2955,18 @@ padding: 0;
 padding: 0;
 }
 
-.banner nav a, nav.logon input, nav.logon span {
-    
-    border-radius: 0;
-    border-left: 3px solid <?php echo $banner_back_color ?>;
-    padding: 1rem 0.75rem 1rem 0.75rem;
+nav.logon input[type="submit" i] {
+padding-block:1rem !important;
 }
+
+.banner nav a, nav.logon input, nav.logon span {
+    border-radius: 0;
+    padding: 1rem 0.75rem 1rem 0.75rem;
+    border-left: 1px solid <?php echo $banner_border_color ?>;
+}
+
+.banner a:link, nav.logon input {
+    font-weight:bold;
+}
+
+
