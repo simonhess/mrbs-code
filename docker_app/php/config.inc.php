@@ -20,6 +20,8 @@ $kiosk_default_mode = 'room';
 
 $theme = "modern";
 
+$show_index_date_heading=false;
+
 /**********
  * Language
  **********/

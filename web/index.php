@@ -344,7 +344,12 @@ function get_calendar_nav(string $view, int $view_all, int $year, int $month, in
 function get_date_heading(string $view, int $year, int $month, int $day) : string
 {
   global $datetime_formats, $display_timezone, $timezone,
-         $weekstarts, $view_week_number;
+         $weekstarts, $view_week_number,
+         $show_index_date_heading;
+
+  if(!$show_index_date_heading){
+    return '';
+  }
 
   $html = '';
   $time = mktime(12, 0, 0, $month, $day, $year);
