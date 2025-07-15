@@ -146,7 +146,7 @@ function make_room_select_html (string $view, int $view_all, int $year, int $mon
     $submit->setAttributes(array('class' => 'js_none',
                                  'value' => get_vocab('change')));
     $form->addElement($submit);
-
+    $out_html .= " <span>" . get_vocab('room') . ": </span>";
     $out_html .= $form->toHTML();
   }
 
@@ -220,6 +220,7 @@ function get_location_nav(string $view, int $view_all, int $year, int $month, in
 
   if ($view !== 'day')
   {
+    //$html .=
     $html .= make_room_select_html($view, $view_all, $year, $month, $day, $area, $room);
   }
 
