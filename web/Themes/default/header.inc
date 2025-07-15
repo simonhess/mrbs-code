@@ -119,14 +119,14 @@ function print_header_site_info() : void
 }
 
 
-function print_goto_date(array $context) : void
+function print_goto_date(array $context) : Form
 {
   global $multisite, $site;
 
   if (!checkAuthorised('index.php', true))
   {
     // Don't show the goto box if the user isn't allowed to view the calendar
-    return;
+    return new Form();
   }
 
   $form = new Form();
@@ -170,7 +170,8 @@ function print_goto_date(array $context) : void
   $submit->setAttribute('value', get_vocab('goto'));
   $form->addElement($submit);
 
-  $form->render();
+  return $form;
+  //$form->render();
 }
 
 
@@ -466,7 +467,6 @@ function print_banner(?array $context, $simple=false, $omit_login=false) : void
     echo "</nav>\n";
 
     echo "<nav>\n";
-    print_goto_date($context);
     print_search($context);
     echo "</nav>\n";
 

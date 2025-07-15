@@ -2969,12 +2969,21 @@ padding-block:1rem !important;
     font-weight:bold;
 }
 
-.banner #form_nav input:last-child{
-visibility: collapse;
-}
-
 nav.main_calendar nav.location span{
   margin-top: auto;
   margin-bottom: auto;
+}
+
+nav.arrow input.form-control.input{
+ line-height: 1.8em;
+}
+
+nav.arrow #form_nav input:last-child{
+visibility: collapse;
+}
+
+div.date_heading{
+visibility: collapse;
+
 }
 

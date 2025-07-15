@@ -266,7 +266,7 @@ function get_view_nav(string $current_view, int $view_all, int $year, int $month
 }
 
 
-function get_arrow_nav(string $view, int $view_all, int $year, int $month, int $day, int $area, int $room) : string
+function get_arrow_nav(string $view, int $view_all, int $year, int $month, int $day, int $area, int $room, array $context) : string
 {
   $html = '';
 
@@ -317,13 +317,15 @@ function get_arrow_nav(string $view, int $view_all, int $year, int $month, int $
   {
     $html .= "<a class=\"next week symbol prefetch\" title=\"$title_next_week\" aria-label=\"$title_next_week\" href=\"" . escape_html($link_next_week) . "\"></a>";
   }
+  $html .=  print_goto_date($context)->toHTML();
+
   $html .= "</nav>";
 
   return $html;
 }
 
 
-function get_calendar_nav(string $view, int $view_all, int $year, int $month, int $day, int $area, int $room, bool $hidden=false) : string
+function get_calendar_nav(string $view, int $view_all, int $year, int $month, int $day, int $area, int $room, array $context, bool $hidden=false) : string
 {
   $html = '';
 
@@ -331,7 +333,7 @@ function get_calendar_nav(string $view, int $view_all, int $year, int $month, in
            (($hidden) ? ' js_hidden' : '') .
            "\">\n";
 
-  $html .= get_arrow_nav($view, $view_all, $year, $month, $day, $area, $room);
+  $html .= get_arrow_nav($view, $view_all, $year, $month, $day, $area, $room, $context);
   $html .= get_location_nav($view, $view_all, $year, $month, $day, $area, $room);
   $html .= get_view_nav($view, $view_all, $year, $month, $day, $area, $room);
 
@@ -502,7 +504,7 @@ echo "</div>\n";
 
 echo "<div class=\"view_container js_hidden\">\n";
 echo "<div class=\"date_heading\">$date_heading</div>";
-echo get_calendar_nav($view, $view_all, $year, $month, $day, $area, $room);
+echo get_calendar_nav($view, $view_all, $year, $month, $day, $area, $room,$context);
 
 echo message_html();
 
@@ -525,7 +527,7 @@ echo "</table>\n";
 echo "</div>\n";
 
 // The bottom navigation bar is controlled by JavaScript
-echo get_calendar_nav($view, $view_all, $year, $month, $day, $area, $room, true);
+echo get_calendar_nav($view, $view_all, $year, $month, $day, $area, $room, $context, true);
 
 echo get_color_key();
 echo "</div>\n";
