@@ -2978,12 +2978,20 @@ nav.arrow input.form-control.input{
  line-height: 1.8em;
 }
 
-nav.arrow #form_nav input:last-child{
-visibility: collapse;
+nav.arrow a.next.symbol.prefetch{
+border-left: thin solid <?php echo $body_background_color ?>;
+}
+
+nav.arrow a.next.week.symbol.prefetch{
+border-left: 0;
+}
+
+#form_nav {
+  padding-right: 0;
+  margin-right: 0;
 }
 
 div.date_heading{
 visibility: collapse;
-
 }
 

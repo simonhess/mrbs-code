@@ -311,14 +311,14 @@ function get_arrow_nav(string $view, int $view_all, int $year, int $month, int $
     $html .= "<a class=\"prev week symbol prefetch\" title=\"$title_prev_week\" aria-label=\"$title_prev_week\" href=\"" . escape_html($link_prev_week) . "\"></a>";
   }
   $html .= "<a class=\"prev symbol prefetch\" title=\"$title_prev\" aria-label=\"$title_prev\" href=\"" . escape_html($link_prev) . "\"></a>";
-  $html .= "<a title= \"$title_this\" aria-label=\"$title_this\" href=\"" . escape_html($link_today) . "\">" . get_vocab('today') . "</a>";
+  $html .=  print_goto_date($context)->toHTML();
+
   $html .= "<a class=\"next symbol prefetch\" title=\"$title_next\" aria-label=\"$title_next\" href=\"" . escape_html($link_next) . "\"></a>";
   if ($view == 'day')
   {
     $html .= "<a class=\"next week symbol prefetch\" title=\"$title_next_week\" aria-label=\"$title_next_week\" href=\"" . escape_html($link_next_week) . "\"></a>";
   }
-  $html .=  print_goto_date($context)->toHTML();
-
+  $html .= "<a title= \"$title_this\" aria-label=\"$title_this\" href=\"" . escape_html($link_today) . "\">" . get_vocab('today') . "</a>";
   $html .= "</nav>";
 
   return $html;
@@ -525,9 +525,6 @@ echo '<table class="' . implode(' ', $classes) . "\" id=\"{$view}_main\" data-re
 echo $inner_html;
 echo "</table>\n";
 echo "</div>\n";
-
-// The bottom navigation bar is controlled by JavaScript
-echo get_calendar_nav($view, $view_all, $year, $month, $day, $area, $room, $context, true);
 
 echo get_color_key();
 echo "</div>\n";

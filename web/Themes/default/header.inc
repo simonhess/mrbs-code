@@ -168,7 +168,7 @@ function print_goto_date(array $context) : Form
 
   $submit = new ElementInputSubmit();
   $submit->setAttribute('value', get_vocab('goto'));
-  $form->addElement($submit);
+  //$form->addElement($submit);
 
   return $form;
   //$form->render();
