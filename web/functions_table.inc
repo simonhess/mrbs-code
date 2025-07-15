@@ -656,8 +656,6 @@ function day_table_innerhtml(string $view, int $year, int $month, int $day, int 
 
   $thead .= ">\n";
 
-  $header_inner = "<tr>\n";
-
   if ($times_along_top)
   {
     $tag = 'room';
@@ -677,7 +675,10 @@ function day_table_innerhtml(string $view, int $year, int $month, int $day, int 
   // We can display the table in two ways
   if ($times_along_top)
   {
+    $header_inner = "<tr>\n";
     $header_inner .= get_times_header_cells($morning_slot_seconds, $evening_slot_seconds, $resolution);
+    $header_inner .= "</tr>\n";
+    
   }
   else
   {
@@ -691,7 +692,7 @@ function day_table_innerhtml(string $view, int $year, int $month, int $day, int 
     //$header_inner .= get_rooms_header_cells($rooms, $vars);
     $label = get_vocab($tag);
     $header_inner_rows = multiday_all_rooms_header_rows($view, 1, $year, $month, $day, $area_id, $room_id, 1, 1, $label,$rooms);
-    $header_inner .= implode('', $header_inner_rows);
+    $header_inner = implode('', $header_inner_rows);
   }  // end standard view (for the header)
 
   // next: line to display times on right side
@@ -700,7 +701,6 @@ function day_table_innerhtml(string $view, int $year, int $month, int $day, int 
     //$header_inner .= $first_last_html;
   }
 
-  $header_inner .= "</tr>\n";
   $thead .= $header_inner;
   $thead .= "</thead>\n";
 
