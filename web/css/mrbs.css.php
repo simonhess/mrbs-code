@@ -2995,3 +2995,11 @@ div.date_heading{
 visibility: collapse;
 }
 
+
+.dwm_main thead {
+  position: sticky;
+  top: 0;
+  z-index: 600;
+}
+
+
