@@ -18,7 +18,7 @@ $kiosk_default_mode = 'room';
 
 /* Style */
 
-$theme = "modern";
+$theme = "modern_green";
 
 $show_index_date_heading=false;
 
