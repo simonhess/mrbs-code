@@ -57,14 +57,6 @@ However, when configuration of php and database is change, you have to reset the
   docker-compose build
   ~~~
 
-### Run certbot in apache server
-
-Change domain name in .env file to your domain:
-
-DOMAIN="DOMAIN"
-
-Copy your letsencrypt folder with valid certificates to this folder
-
 ### Configure mrbs and e-mail notifications
 
 Set the following global variables to your settings:
