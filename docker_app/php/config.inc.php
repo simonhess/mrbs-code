@@ -43,7 +43,7 @@ $default_language_tokens = "de";
 
 $mrbs_company = "";
 
-$vocab_override['de']['mrbs'] = "TC Nüsttal Platzbuchungssystem";
+$vocab_override['de']['mrbs'] = "";
 
 // E-Mail configuration
 
@@ -68,7 +68,7 @@ $mail_settings['use_from_for_all_mail'] = true;
 // ----------------------
 // Set the name of the backend used to transport your mails. Either 'mail',
 // 'smtp', 'sendmail' or 'qmail'. Default is 'mail'.
-$mail_settings['admin_backend'] = 'mail';
+$mail_settings['admin_backend'] = 'smtp';
 
 
 // WHO TO EMAIL
@@ -121,9 +121,9 @@ $mail_settings['admin_lang'] = 'de';   // Default is 'en'.
 
 // These settings are only used with the "smtp" backend
 $smtp_settings['host'] = 'localhost';  // SMTP server
-$smtp_settings['port'] = 465;           // SMTP port number
-$smtp_settings['auth'] = false;        // Whether to use SMTP authentication
-$smtp_settings['secure'] = 'tsl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
+$smtp_settings['port'] = 465;          // SMTP port number
+$smtp_settings['auth'] = true;        // Whether to use SMTP authentication
+$smtp_settings['secure'] = 'ssl';         // Encryption method: '', 'tls' or 'ssl' - note that 'tls' means TLS is used even if the SMTP
                                        // server doesn't advertise it. Conversely if you specify '' and the server advertises TLS, TLS
                                        // will be used, unless the 'disable_opportunistic_tls' configuration parameter shown below is
                                        // set to true.
