@@ -57,3 +57,21 @@ However, when configuration of php and database is change, you have to reset the
   docker-compose build
   ~~~
 
+### Configure compose
+
+Replace DOMAIN="DOMAIN" in .env with your domain
+
+### Configure mrbs and e-mail notifications
+
+Set the following global variables to your settings:
+
+$mrbs_company = "";
+
+$mail_settings['from'] = 'admin_email@your.org';
+
+$smtp_settings['host'] = '';  // SMTP server
+$smtp_settings['port'] = 465;
+$smtp_settings['auth'] = true;
+$smtp_settings['secure'] = 'ssl';
+$smtp_settings['username'] = '';       // Username (if using authentication)
+$smtp_settings['password'] = '';
