@@ -16,14 +16,13 @@ services:
             - ../web:/var/www/html/
             - ../docker_app/php/config.inc.php:/var/www/html/config.inc.php
             - ./letsencrypt:/etc/letsencrypt
+        restart: unless-stopped
         links:
             - db
         networks:
             - default
     db:
         image: mysql:8.0
-        ports:
-            - "3306:3306"
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: mrbs
@@ -34,13 +33,8 @@ services:
             - ../tables.my.sql:/docker-entrypoint-initdb.d/010-tables.sql
             - persistent:/var/lib/mysql
             - ./mysql/my.cnf:/etc/mysql/my.cnf
+        restart: unless-stopped
         networks:
             - default
-    phpmyadmin:
-        image: phpmyadmin
-        links:
-            - db:db
-        ports:
-            - 8888:80
 volumes:
     persistent:
