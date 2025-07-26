@@ -53,7 +53,8 @@ $form_vars = array(
   'area_confirmed_default'        => 'string',
   'area_default_type'             => 'string',
   'area_times_along_top'          => 'string',
-  'custom_html'                   => 'string'
+  'custom_html'                   => 'string',
+  'area_password'                   => 'string'
 );
 
 foreach($form_vars as $var => $var_type)
@@ -236,6 +237,8 @@ $sql_params = array();
 $assign_array = array();
 $assign_array[] = "area_name=?";
 $sql_params[] = $area_name;
+$assign_array[] = "area_password=?";
+$sql_params[] = $area_password;
 $assign_array[] = "sort_key=?";
 $sql_params[] = $sort_key;
 $assign_array[] = "disabled=?";

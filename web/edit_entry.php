@@ -19,6 +19,7 @@ use MRBS\Form\FieldInputCheckbox;
 use MRBS\Form\FieldInputCheckboxGroup;
 use MRBS\Form\FieldInputDate;
 use MRBS\Form\FieldInputNumber;
+use MRBS\Form\FieldInputPassword;
 use MRBS\Form\FieldInputRadioGroup;
 use MRBS\Form\FieldSelect;
 use MRBS\Form\FieldTimeWithUnits;
@@ -1876,6 +1877,21 @@ foreach ($edit_entry_field_order as $key)
 
   } // switch
 } // foreach
+
+global $auth;
+
+if ($auth['allow_anonymous_booking'] && $auth['anonymous_booking_require_password']) {
+  // The password field
+  $field = new FieldInputPassword();
+  $field->setLabel(get_vocab('users.password'))
+    ->setControlAttributes(array(
+      'id'           => 'password',
+      'name'         => 'password',
+      'autocomplete' => 'current-password',
+      'required' => true
+    ));
+  $fieldset->addElement($field);
+}
 
 $form->addElement($fieldset);
 

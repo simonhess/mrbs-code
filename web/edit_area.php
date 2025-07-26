@@ -183,6 +183,16 @@ function get_fieldset_general(array $data) : ElementFieldset
         ->setControlChecked($data['times_along_top']);
   $fieldset->addElement($field);
 
+  // Area Password
+  $field = new FieldInputText();
+  $field->setLabel(get_vocab('users.password'))
+        ->setControlAttributes(array('id'        => 'area_password',
+                                     'name'      => 'area_password',
+                                     'required'  => false,
+                                     'maxlength' => maxlength('area.area_name'),
+                                     'value'     => $data['area_password']));
+  $fieldset->addElement($field);
+
   return $fieldset;
 }
 

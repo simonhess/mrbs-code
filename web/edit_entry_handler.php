@@ -755,6 +755,21 @@ if (isset($custom_fields['booker_email']) && !is_admin() && !validate_email_list
 
 }
 
+global $auth;
+
+if ($auth['allow_anonymous_booking'] && $auth['anonymous_booking_require_password']) {
+  $password = get_form_var('password', 'string');
+
+  $sql = "SELECT area_password
+            FROM " . _tbl('area') . "
+           WHERE id=?
+           LIMIT 1";
+  $area_password = db()->query_array($sql, array($area));
+
+  if ($password !== $area_password[0]) {
+    invalid_booking(get_vocab("invalid_area_password"));
+  }
+}
 
 
 // (4) Assemble the booking data

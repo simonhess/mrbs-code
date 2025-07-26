@@ -214,15 +214,14 @@ $vocab_override['de']['fulldescription_short'] = "Kommentar";
 $vocab_override['de']['rooms'] = "Platz";
 $vocab_override['de']['room'] = "Platz";
 
-
-$vocab_override['de']['username_or_email'] = "gast oder mitglied";
-
-
 $vocab_override["de"]["type.I"] =     "Buchung";
 
 $vocab_override["de"]["type.E"] =     "Training";
 
 $vocab_override["de"]["type.A"] =     "Medenspiel";
+
+$vocab["invalid_area_password"] = 'Invalid Password!';
+$vocab_override["de"]["invalid_area_password"] =     "Ungültiges Password!";
 
 
 
@@ -311,3 +310,8 @@ $auth['only_admin_can_click_slots_existing_entry'] = true;
 
 // Determine whether users or only the admin can resize existing entries 
 $auth['only_admin_can_resize_entries'] = true;
+
+// Set this to true if you want users to be able to make bookings without logging in.
+$auth['allow_anonymous_booking'] = true;
+
+$auth['anonymous_booking_require_password'] = true;
