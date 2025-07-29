@@ -191,6 +191,11 @@ function get_fieldset_general(array $data) : ElementFieldset
                                      'required'  => false,
                                      'maxlength' => maxlength('area.area_name'),
                                      'value'     => $data['area_password']));
+  global $auth;
+
+  if (!$auth['anonymous_booking_require_password']) {
+    $field->setAttributes(array( 'class' => 'js_hidden'));
+  }
   $fieldset->addElement($field);
 
   return $fieldset;
