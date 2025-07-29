@@ -214,6 +214,8 @@ $vocab_override['de']['fulldescription_short'] = "Kommentar";
 $vocab_override['de']['rooms'] = "Platz";
 $vocab_override['de']['room'] = "Platz";
 
+$vocab_override['de']['username_or_email'] = "gast oder mitglied";
+
 $vocab_override["de"]["type.I"] =     "Buchung";
 
 $vocab_override["de"]["type.E"] =     "Training";
@@ -312,6 +314,6 @@ $auth['only_admin_can_click_slots_existing_entry'] = true;
 $auth['only_admin_can_resize_entries'] = true;
 
 // Set this to true if you want users to be able to make bookings without logging in.
-$auth['allow_anonymous_booking'] = true;
+$auth['allow_anonymous_booking'] = false;
 
-$auth['anonymous_booking_require_password'] = true;
+$auth['anonymous_booking_require_password'] = false;
