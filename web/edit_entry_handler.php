@@ -757,7 +757,7 @@ if (isset($custom_fields['booker_email']) && !is_admin() && !validate_email_list
 
 global $auth;
 
-if ($auth['allow_anonymous_booking'] && $auth['anonymous_booking_require_password']) {
+if ($auth['allow_anonymous_booking'] && $auth['anonymous_booking_require_password'] && $mrbs_username==='') {
   $password = get_form_var('password', 'string');
 
   $sql = "SELECT area_password

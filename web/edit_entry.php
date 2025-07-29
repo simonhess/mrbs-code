@@ -1880,7 +1880,7 @@ foreach ($edit_entry_field_order as $key)
 
 global $auth;
 
-if ($auth['allow_anonymous_booking'] && $auth['anonymous_booking_require_password']) {
+if ($auth['allow_anonymous_booking'] && $auth['anonymous_booking_require_password'] && $mrbs_username==='') {
   // The password field
   $field = new FieldInputPassword();
   $field->setLabel(get_vocab('users.password'))
