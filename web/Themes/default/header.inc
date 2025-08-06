@@ -215,7 +215,8 @@ function print_menu_items(string $query) : void
 {
   global $auth, $kiosk_mode_enabled;
 
-  $menu_items = array('help'   => 'help.php',
+  $menu_items = array('calendar'   => 'index.php',
+                      'help'   => 'help.php',
                       'report' => 'report.php',
                       'import' => 'import.php');
 

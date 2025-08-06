@@ -225,7 +225,8 @@ $vocab_override["de"]["type.A"] =     "Medenspiel";
 $vocab["invalid_area_password"] = 'Invalid Password!';
 $vocab_override["de"]["invalid_area_password"] =     "Ungültiges Password!";
 
-
+$vocab["calendar"] = 'Calendar';
+$vocab_override["de"]["calendar"] =     "Kalender";
 
 // The maximum length of a database field for which a text input can be used on a form
 // (eg when editing a user or room).  If longer than this a text area will be used.
